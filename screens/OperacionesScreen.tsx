@@ -34,8 +34,8 @@ export default function OperacionesScreen() {
             onPress: () => {
               // Guardar en la base de datos
               set(ref(db, 'prueba2/' + idoperaciones), {
-                cost: precio,
-                quanti: cantidad,
+                price: precio,
+                quantity: cantidad,
                 description: descripcion,
               });
               Alert.alert('Éxito', 'Operación guardada correctamente');
