@@ -1,14 +1,17 @@
 import { Alert, Button, StyleSheet, Text, TextInput, View } from 'react-native';
 import React, { useState } from 'react';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth, db } from '../config/Config';
-import { ref, set } from 'firebase/database';
+import { getDatabase, ref, set } from 'firebase/database'; 
+//FIREBASE
+import { db } from '../config/Config';
 
 export default function OperacionesScreen() {
   const [idoperaciones, setidoperaciones] = useState('');
   const [precio, setprecio] = useState('');
   const [cantidad, setcantidad] = useState('');
   const [descripcion, setdescripcion] = useState('');
+
+  // Obtener la referencia a la base de datos
+  const db = getDatabase(); 
 
   // Función para manejar la validación y guardar
   function guardar() {
@@ -57,7 +60,7 @@ export default function OperacionesScreen() {
     }
   }
 
-  // Función para limpiar campos de Registro
+  //  limpiar 
   const limpiarCamposRegistro = () => {
     setidoperaciones('');
     setprecio('');
